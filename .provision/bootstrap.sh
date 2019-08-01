@@ -26,7 +26,7 @@ yarn global add create-cozy-app
 # . https://www.virtualbox.org/manual/ch06.html  (pour la gestion réseau de samba sur virtualbox via une interface réseau "host only")
 apt install -y samba
 # Create a directory to be shared
-mkdir -p /home/vagrant/shared/
+mkdir -p /home/vagrant/shared/app-build/
 chown vagrant /home/vagrant/shared/
 chmod 777 /home/vagrant/shared/
 #
@@ -59,7 +59,7 @@ apt-get update
 
 debconf-set-selections <<EOF
 cozy-couchdb couchdb/mode select standalone
-cozy-couchdb couchdb/bindaddress string 127.0.0.1
+cozy-couchdb couchdb/bindaddress string 0.0.0.0
 cozy-couchdb couchdb/nodename string couchdb@127.0.0.1
 cozy-couchdb couchdb/adminpass password admin
 cozy-couchdb couchdb/adminpass_again password admin

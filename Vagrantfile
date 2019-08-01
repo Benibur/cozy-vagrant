@@ -71,6 +71,9 @@ sudo systemctl status cozy-stack.service
 sudo systemctl start cozy-stack.service
 sudo cozy-stack serve --dev --appdir app:/home/vagrant/shared/app-build --allow-root --disable-csp
 
+* to update the stack :
+sudo apt update && sudo apt dist-upgrade && sudo systemctl restart cozy-stack.service
+
 
 * /!\\ THE CODE OF THE SHARED FOLDER IS STORED IN THE VIRTUAL MACHINE !
   Don't forget to push your code regularly on your repo /!\\
@@ -106,6 +109,8 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 8080, host: 8080
   # for create-cozy-app
   config.vm.network "forwarded_port", guest: 8888, host: 8888
+  # for couchDB
+  config.vm.network "forwarded_port", guest: 5984, host: 5984
   # ???
   config.vm.network "forwarded_port", guest: 3333, host: 3333
   # ???
