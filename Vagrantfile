@@ -34,6 +34,9 @@ That said :
 * Access your Cozy for your tests here :
   http://cozy.tools:8080  (pwd = cozy)
 
+* you can navigate in CouchDB here :
+  http://cozy.tools:5984/_utils/#login  (cozy/cozy)
+
 * You can connect to the guest machine throught SSH with
   `vagrant ssh`
 
