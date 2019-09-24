@@ -1,5 +1,21 @@
 # Cozy Cloud Vagrant image for developpments on Windows
 
+# TODO :
+Comment démarrer la stack pour qu'elle sache chercher dans un répertoire tous les liens symboliques vers des répertoires où sont les build d'apps
+patrick
+Bash
+cd ~/code/cozy/cozy-env/apps
+~/code/cozy/cozy-stack/scripts/cozy-app-dev.sh -d .
+
+le repertoire ou je demarre la stack contient les liens symboliques
+Bash
+$ ls -lh ~/code/cozy/cozy-env/apps/
+total 0
+lrwxr-xr-x  1 cozy  staff    33B Aug  7 20:40 banks -> /Users/cozy/code/cozy/banks/build
+lrwxr-xr-x  1 cozy  staff    38B Aug 29 09:29 home -> /Users/cozy/code/cozy/cozy-home/build/
+lrwxr-xr-x  1 cozy  staff    37B Aug  8 14:22 keys -> /Users/cozy/code/cozy/cozy-keys/build
+drwxr-xr-x  4 cozy  staff   128B Aug  7 21:03 storage
+
 # What you can expect
 * Setup a Cozy Cloud development environment on Windows thanks to a debian virtual machine
 * The VM contains the whole Cozy stack up and running for development NOT FOR PRODUCTION (security is disabled)
@@ -45,5 +61,3 @@
 
   * /!\ The code of the shared folder is stored in the virtual machine :
     don't forget to push your code regularly /!\
-
-  -

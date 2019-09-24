@@ -48,7 +48,6 @@ That said :
     - activate SMB1 clients : `Set-SmbServerConfiguration -EnableSMB1Protocol $true`
     - enable access to "unsecure clients" : https://tech.nicolonsky.ch/windows-10-1709-cannot-access-smb2-share-guest-access/
     - see also : https://support.microsoft.com/en-us/help/2696547/detect-enable-disable-smbv1-smbv2-smbv3-in-windows-and-windows-server
-
   )
 
 * Inside the vm the shared directory location is :
@@ -60,23 +59,25 @@ That said :
 * To start your Cozy app from a template you can from the guest :
   `cd /home/vagrant/shared`
   `create-cozy-app mycozyapp`
-  more info : https://github.com/CPatchane/create-cozy-app
+  more info : https://github.com/cozy/create-cozy-app
 
 * You can the edit your code from the guest in the shared
   folder !
   ( \\\\192.168.33.10\\shared )
 
 * To deploy your app [to be continued]
-
-sudo systemctl stop cozy-stack.service
-sudo systemctl restart cozy-stack.service
-sudo systemctl status cozy-stack.service
-sudo systemctl start cozy-stack.service
-sudo cozy-stack serve --dev --appdir app:/home/vagrant/shared/app-build --allow-root --disable-csp
+  export COZY_SCRIPTS_APP_BUILD_DIR=../app-build
+  yarn build
 
 * to update the stack :
-sudo apt update && sudo apt dist-upgrade && sudo systemctl restart cozy-stack.service
+  sudo apt update && sudo apt dist-upgrade && sudo systemctl restart cozy-stack.service
 
+* to stop, restart, specify a precise directory for an app build ...
+  sudo systemctl stop cozy-stack.service
+  sudo systemctl restart cozy-stack.service
+  sudo systemctl status cozy-stack.service
+  sudo systemctl start cozy-stack.service
+  sudo cozy-stack serve --dev --appdir app:/home/vagrant/shared/app-build --allow-root --disable-csp
 
 * /!\\ THE CODE OF THE SHARED FOLDER IS STORED IN THE VIRTUAL MACHINE !
   Don't forget to push your code regularly on your repo /!\\

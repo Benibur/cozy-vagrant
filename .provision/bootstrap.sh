@@ -27,8 +27,8 @@ yarn global add create-cozy-app
 apt install -y samba
 # Create a directory to be shared
 mkdir -p /home/vagrant/shared/app-build/
-chown vagrant /home/vagrant/shared/
-chmod 777 /home/vagrant/shared/
+chown -R vagrant /home/vagrant/shared/
+chmod -R 777 /home/vagrant/shared/
 #
 cat << EOF >> /etc/samba/smb.conf
 [shared]
